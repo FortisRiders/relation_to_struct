@@ -48,6 +48,7 @@ jobs:
           - rails_7_0
           - rails_7_1
           - rails_7_2
+          - rails_8_0
     name: SQLite - Ruby ${{ matrix.ruby }} - ${{ matrix.gemfile }}
     runs-on: ubuntu-latest
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps

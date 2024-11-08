@@ -3,3 +3,8 @@
     gem "rails", "~> #{version}.0"
   end
 end
+
+appraise "rails-8-0" do
+  gem "rails", "~> 8.0.0"
+  ruby ">= 3.2.0"
+end

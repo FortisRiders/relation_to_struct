@@ -13,17 +13,17 @@ jobs:
         ruby:
           - "3.2"
           - "3.3"
+          - "3.4"
         gemfile:
-          - rails_7_0
-          - rails_7_1
           - rails_7_2
           - rails_8_0
+          - rails_8_1
     name: PostgreSQL ${{ matrix.pg }} - Ruby ${{ matrix.ruby }} - ${{ matrix.gemfile }}
     runs-on: ubuntu-latest
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Start the postgres container
         run: docker compose up -d
         env:
@@ -42,17 +42,17 @@ jobs:
         ruby:
           - "3.2"
           - "3.3"
+          - "3.4"
         gemfile:
-          - rails_7_0
-          - rails_7_1
           - rails_7_2
           - rails_8_0
+          - rails_8_1
     name: SQLite - Ruby ${{ matrix.ruby }} - ${{ matrix.gemfile }}
     runs-on: ubuntu-latest
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Setup Ruby using .ruby-version file
         uses: ruby/setup-ruby@v1
         with:
